@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Audio Player (Dropbox)</title>
+</head>
+<body>
+  <h1>Random Audio Player</h1>
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    // Replace with your Dropbox file links modified to end with ?raw=1
+    const audioFileUrls = [
+      "https://www.dropbox.com/scl/fi/k1cb1zh9aatamccnbbkdf/fork-on-plate-6764.mp3?rlkey=jjh6fwd0vv1tga09li924wb0q&st=u0hjnhap&dl=0&raw=1",
+      "https://www.dropbox.com/scl/fi/rvco3daqhih5lj1r67try/The-Supremes-Stop-In-The-Name-Of-Love-Lyric-Video.mp3?rlkey=dfups9d26tz41b6gpie8e7lig&st=90elsrn2&raw=1",
+      "https://www.dropbox.com/scl/fi/azszkvtai8c748t7dvkjw/traffic-sound-111442.mp3?rlkey=9mhzadlkscp1kkefiosctkskr&st=7buny4da&raw=1"
+    ];
+
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    // Event: Set a random audio source when the play button is clicked
+    audioPlayer.addEventListener('play', () => {
+      if (!audioPlayer.src) {
+        // Select a random URL
+        const randomIndex = Math.floor(Math.random() * audioFileUrls.length);
+        const randomAudioUrl = audioFileUrls[randomIndex];
+
+        // Set the audio player source
+        audioPlayer.src = randomAudioUrl;
+      }
+    });
+  </script>
+</body>
+</html>
